@@ -4,6 +4,10 @@ Bilgisayar mühendisliği öğrencisi Esma Nur Güvenç'in projelerini, ilgi ala
 
 **Site:** https://esmaxp.github.io/esmanurguvenc-portfolio/
 
+## Önizleme
+
+[![Portfolyo sitesinin ana sayfası: pastel tasarım, proje bağlantıları ve mini oyun](assets/portfolio-preview.png)](https://esmaxp.github.io/esmanurguvenc-portfolio/)
+
 ## Özellikler
 
 - Farklı ekran boyutlarına uyum sağlayan tasarım
