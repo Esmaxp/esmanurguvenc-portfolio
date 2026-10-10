@@ -2,11 +2,11 @@
 
 Bilgisayar mühendisliği öğrencisi Esma Nur Güvenç'in projelerini, ilgi alanlarını, deneyimini ve eğitimini tanıtan kişisel web sitesi.
 
-**Site:** https://esmaxp.github.io/esmanurguvenc-portfolio/
+**Site:** [esmanurguvenc.com.tr](https://esmanurguvenc.com.tr/)
 
 ## Önizleme
 
-[![Portfolyo sitesinin ana sayfası: pastel tasarım, proje bağlantıları ve mini oyun](assets/portfolio-preview.png)](https://esmaxp.github.io/esmanurguvenc-portfolio/)
+[![Portfolyo sitesinin ana sayfası: pastel tasarım, proje bağlantıları ve mini oyun](assets/portfolio-preview.png)](https://esmanurguvenc.com.tr/)
 
 ## Özellikler
 
