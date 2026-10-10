@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Esma Nur Güvenç | Bilgisayar Mühendisliği Öğrencisi</title>
+<meta name="description" content="Esma Nur Güvenç: radar, görüntü işleme, veri analizi ve oyun geliştirme projeleri.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#3a3552;--mute:#6a6483;--bg:#fbf9ff;--lav:#ebe5fb;--peach:#ffe2d1;--mint:#d6f0e4;--sky:#d9eaf8;--butter:#fff0c4;--pink:#fbdce6;--violet:#6f5cc4;--line:#e3dcf2;--deep:#463f68}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:400 16px/1.65 Nunito,sans-serif;color:var(--ink);background:var(--bg)}
+h1,h2,h3,nav b,.int b,.mail{font-family:Fraunces,serif;font-weight:500;line-height:1.15;margin:0}
+a{color:inherit}
+a:focus-visible,button:focus-visible,canvas:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
+nav{position:sticky;top:0;z-index:9;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 5vw;background:rgba(251,249,255,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav b{font-size:20px}nav div{display:flex;gap:22px;font-size:15px}nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--ink)}
+.hero{position:relative;min-height:calc(100svh - 58px);display:flex;align-items:center;padding:60px 5vw;overflow:hidden;background:radial-gradient(circle at 88% 12%,var(--peach) 0,transparent 38%),radial-gradient(circle at 62% 98%,var(--mint) 0,transparent 40%),var(--lav)}
+#game{position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y}
+.in{position:relative;max-width:560px;pointer-events:none}.in a{pointer-events:auto}
+h1{font-size:clamp(44px,7vw,88px)}
+.role{font-size:clamp(18px,2.2vw,24px);margin:18px 0 8px;min-height:1.6em;color:var(--violet);font-weight:700}
+.caret{display:inline-block;width:2px;height:1em;background:var(--violet);margin-left:3px;vertical-align:-2px;animation:b 1s steps(1) infinite}@keyframes b{50%{opacity:0}}
+.lead{max-width:42ch;margin:0;color:var(--mute)}
+.btns{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{padding:11px 22px;border-radius:999px;border:2px solid var(--ink);text-decoration:none;font:700 15px Nunito,sans-serif;color:var(--ink);background:none;cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:var(--ink);color:#fff}
+.btn.f{background:var(--violet);border-color:var(--violet);color:#fff}.btn.f:hover{background:#5a49a8;border-color:#5a49a8}
+.hud{position:absolute;top:18px;right:5vw;display:flex;gap:12px;align-items:center;pointer-events:none;font-weight:700}
+.hud span:first-child{background:#fff;border:2px solid var(--ink);border-radius:999px;padding:4px 14px}
+.hint{position:absolute;right:5vw;bottom:16px;margin:0;font-size:14px;color:var(--mute);text-align:right;pointer-events:none}
+section{padding:88px 5vw;max-width:1100px;margin:auto}
+h2{font-size:clamp(30px,4vw,44px);margin-bottom:28px}
+.about{max-width:62ch}
+.about p{margin:0 0 12px;max-width:62ch}
+.ints{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.int{all:unset;box-sizing:border-box;position:relative;cursor:pointer;background:var(--c);border:2px solid transparent;border-radius:20px;padding:20px 52px 20px 22px;display:block;transition:border-color .2s}
+.int:nth-child(1){--c:var(--sky)}.int:nth-child(2){--c:var(--mint)}.int:nth-child(3){--c:var(--peach)}.int:nth-child(4){--c:var(--butter)}.int:nth-child(5){--c:var(--lav)}.int:nth-child(6){--c:var(--pink)}
+.int:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
+.int::after{content:'+';position:absolute;right:20px;top:14px;font:700 24px Nunito,sans-serif}
+.int[aria-expanded=true]::after{content:'\2212'}
+.int[aria-expanded=true]{border-color:var(--ink)}
+.int b{font-size:21px;display:block}
+.int p{margin:0;max-height:0;overflow:hidden;font-size:15px;transition:max-height .3s,margin .3s}
+.int[aria-expanded=true] p{max-height:140px;margin-top:10px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.chip{font:700 14px Nunito,sans-serif;padding:8px 16px;border-radius:999px;border:2px solid var(--ink);background:none;color:var(--ink);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff}
+.proj{display:grid;grid-template-columns:1fr 1.5fr;gap:8px 36px;padding:26px 0;border-top:2px solid var(--line)}
+.proj[hidden]{display:none}
+.pill{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;margin:0 6px 8px 0}
+.gomulu{background:var(--sky)}.goruntu{background:var(--mint)}.oyun{background:var(--peach)}.web{background:var(--lav)}.veri{background:var(--butter)}
+.proj h3{font-size:23px}.st{font-weight:700;font-size:14px;margin:6px 0 0;color:var(--mute)}
+.proj p{margin:0 0 10px;font-size:15px}.proj a{font-weight:700;font-size:14px;color:var(--violet)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.it{margin-bottom:22px}.it b{font-size:17px}.it small{display:block;color:var(--mute);font-size:14px}.it p{margin:4px 0 0;font-size:15px}
+h3.sub{font-size:24px;margin-bottom:16px}
+.tags span,.tags a{display:inline-block;color:inherit;background:var(--lav);border-radius:999px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px}
+.tags a{text-decoration:underline;text-underline-offset:3px}.tags a:hover{background:var(--ink);color:#fff}
+.tags.m span{background:var(--mint)}
+.cl{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}.cl a{font-size:14px;font-weight:700;padding:4px 14px;border-radius:999px;border:2px solid var(--ink);text-decoration:none}.cl a:hover{background:var(--ink);color:#fff}
+footer{background:var(--deep);color:#f4effd;padding:80px 5vw 36px}
+.ci{max-width:1100px;margin:auto}
+footer h2{margin-bottom:18px}
+.mail{font-size:clamp(24px,4vw,44px);word-break:break-all}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;align-items:center}
+footer .btn{border-color:#f4effd;color:#f4effd}footer .btn:hover{background:#f4effd;color:var(--deep)}
+footer .btn.f{background:var(--peach);border-color:var(--peach);color:var(--ink)}footer .btn.f:hover{background:#fff}
+.copy{margin:40px 0 0;font-size:13px;color:#b9b0d6}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;opacity:0;pointer-events:none;transition:.25s}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:820px){.two,.proj{grid-template-columns:1fr}nav div a:nth-child(n+4){display:none}.hint{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.caret{animation:none}.int p,#toast{transition:none}}
+</style>
+</head>
+<body>
+<nav><b>Esma Nur Güvenç</b><div><a href="#hakkimda">Hakkımda</a><a href="#ilgi">İlgi alanları</a><a href="#projeler">Projeler</a><a href="#deneyim">Deneyim</a><a href="#iletisim">İletişim</a></div></nav>
+
+<header class="hero">
+<canvas id="game" tabindex="0" aria-label="Mini oyun: topu yönlendirip elmasları toplayın"></canvas>
+<div class="hud"><span id="score">0 / 8</span><span id="msg" aria-live="polite"></span></div>
+<div class="in">
+<h1>Esma Nur Güvenç</h1>
+<p class="role"><span id="typed"></span><i class="caret"></i></p>
+<p class="lead">Gerçek zamanlı sistemler, veri ve oyunlar üzerine projeler geliştiriyorum.</p>
+<div class="btns"><a class="btn f" href="#projeler">Projelerimi gör</a><a class="btn" href="#iletisim">İletişime geç</a></div>
+</div>
+<p class="hint">Topu fareyle ya da WASD ile yönlendirip elmasları toplayın.<br>Roll-a-Ball projemden esinlendi.</p>
+</header>
+
+<section id="hakkimda">
+<h2>Hakkımda</h2>
+<div class="about">
+<p>Tekirdağ Namık Kemal Üniversitesi'nde bilgisayar mühendisliği okuyorum, endüstri mühendisliği yandalı yapıyorum.</p>
+<p>Radar, görüntü işleme, veri analizi ve oyun geliştirme alanlarında projeler geliştiriyorum. Gerçek zamanlı ve veri odaklı sistemlerde çalışabileceğim bir yazılım pozisyonu arıyorum.</p>
+</div>
+</section>
+
+<section id="ilgi">
+<h2>İlgi alanlarım</h2>
+<div class="ints">
+<button class="int" aria-expanded="false"><b>Radar ve gömülü sistemler</b><p>mmWave radar, ESP32 ve sensör haberleşmesiyle gerçek zamanlı kişi algılama ve takip üzerine çalıştım.</p></button>
+<button class="int" aria-expanded="false"><b>Görüntü işleme</b><p>OpenCV ile renk maskeleme, kenar algılama ve videodaki nesne bölgelerini bulma uygulamaları geliştirdim.</p></button>
+<button class="int" aria-expanded="false"><b>Oyun geliştirme</b><p>Unity ve C# ile fizik tabanlı hareket, çarpışma ve kamera kontrolü olan bir 3D oyun yaptım.</p></button>
+<button class="int" aria-expanded="false"><b>Veri analizi</b><p>Steam oyun verilerini toplayıp temizleyen, pazar ve rekabet analizi çıkaran bir platform kurdum.</p></button>
+<button class="int" aria-expanded="false"><b>Web geliştirme</b><p>Next.js ve Prisma ile öğretmen, öğrenci ve veliler için rol tabanlı bir eğitim yönetim sistemi yazdım.</p></button>
+<button class="int" aria-expanded="false"><b>Yapay zeka</b><p>Uygulamalı yapay zeka eğitimi aldım ve Python ile çalışıyorum.</p></button>
+</div>
+</section>
+
+<section id="projeler">
+<h2>Projelerim</h2>
+<div class="chips">
+<button class="chip" data-f="all" aria-pressed="true">Tümü</button>
+<button class="chip" data-f="gomulu" aria-pressed="false">Gömülü</button>
+<button class="chip" data-f="goruntu" aria-pressed="false">Görüntü işleme</button>
+<button class="chip" data-f="oyun" aria-pressed="false">Oyun</button>
+<button class="chip" data-f="web" aria-pressed="false">Web</button>
+<button class="chip" data-f="veri" aria-pressed="false">Veri</button>
+</div>
+<div class="proj" data-t="gomulu veri"><div><span class="pill gomulu">Gömülü</span><span class="pill veri">Veri</span><h3>Radar Tabanlı Kişi Algılama ve Takip Sistemi</h3><p class="st">TI IWR6843AOP mmWave radar, ESP32, Modbus RTU, MQTT</p></div><div><p>TI IWR6843AOP mmWave radar kullanarak gerçek zamanlı kişi algılama, takip ve sayma sistemi üzerinde çalıştım. Radar verisini Point Cloud formatında işleyip DBSCAN kümeleme, Kalman Filter, CFAR ve çoklu hedef takibi algoritmalarını araştırdım, sistem mimarisinin geliştirilmesinde yer aldım. Sensör haberleşmesini ESP32 üzerinden UART, RS-485, Modbus RTU ve MQTT/TCP-IP ile analiz ettim; radar kalibrasyonu, görüş alanı (FOV) optimizasyonu, yanlış algılama analizi ve sensör füzyonu çalışmalarına da katkı sağladım.</p></div></div>
+<div class="proj" data-t="web"><div><span class="pill web">Web</span><h3>Birikim Kutusu</h3><p class="st">Next.js, React, TypeScript, Prisma, SQLite, Tailwind CSS, Recharts</p></div><div><p>Okullar için geliştirdiğim, öğretmen, öğrenci ve veli olmak üzere üç rolle giriş yapılan bir eğitim yönetim sistemi. Öğretmenler deneme sınavı sonuçlarını, devamsızlıkları ve rehberlik notlarını girer; öğrenciler analizlerini grafiklerle görür ve kendi kitap rafını yönetir; veliler çocuklarının durumunu takip eder. Her rol yalnızca yetkisi olan bilgilere ulaşır, bir veli birden fazla çocuğunu, bir öğrenci de anne ve babasını tek sistemde bağlayabilir. Uygulamayı Next.js, React ve TypeScript ile, veritabanını Prisma ve SQLite ile kurdum; arayüzü Tailwind CSS, grafikleri Recharts ile hazırladım.</p><a href="https://github.com/Esmaxp/birikim-kutusu" target="_blank" rel="noopener">GitHub'da gör</a></div></div>
+<div class="proj" data-t="oyun"><div><span class="pill oyun">Oyun</span><h3>Roll-a-Ball: Maze Rush</h3><p class="st">Unity, C#, Three.js, JavaScript</p></div><div><p>Topu yönlendirip labirentteki tüm paraları topladığınız ve çıkış portalına ulaştığınız, zamana karşı oynanan bir 3D oyun. Labirent her turda rastgele yeniden üretiliyor, oyuncu düşerse başlangıca dönüp ceza süresi alıyor ve en iyi süre kaydediliyor. Oyunu Unity ve C# ile geliştirdim: fizik tabanlı top kontrolü, para toplama, portal ve kamera takibi mekaniklerini kurdum. Aynı oyunun Three.js ile hazırladığım, tarayıcıda çalışan bir sürümü de var.</p><a href="https://github.com/Esmaxp/Roll-a-Ball" target="_blank" rel="noopener">GitHub'da gör</a></div></div>
+<div class="proj" data-t="goruntu"><div><span class="pill goruntu">Görüntü işleme</span><h3>Görüntü İşleme Uygulamaları</h3><p class="st">Python, OpenCV, NumPy, Matplotlib</p></div><div><p>OpenCV'nin temel konularını ayrı uygulamalarla bağımsız olarak geliştirdiğim bir çalışma serisi. Videodaki nesneleri kenar algılama ve kontur analiziyle bulup çerçeveye alan, görüntüden belirli bir rengi (örneğin mavi) ayıklayan, kameradan canlı görüntü alıp kaydeden ve video üzerine fareyle çizim yapmayı sağlayan uygulamalar yazdım. Renk değerlerini kaydırma çubuklarıyla değiştirebildiğiniz bir panel ve iki görüntüyü birleştirme ile arka planı çıkarma denemeleri de var. Python, OpenCV, NumPy ve Matplotlib kullandım.</p><a href="https://github.com/Esmaxp/denizalti-proje" target="_blank" rel="noopener">GitHub'da gör</a></div></div>
+<div class="proj" data-t="veri web"><div><span class="pill veri">Veri</span><span class="pill web">Web</span><h3>Steam Oyun Pazarı Analiz Platformu</h3><p class="st">Python, FastAPI, PostgreSQL, Next.js, TypeScript, Docker</p></div><div><p>Bağımsız oyun geliştiricileri ve yayıncıları için Steam'deki indie oyunları otomatik bulan, toplayan, sınıflandıran ve analiz eden bir platform. 14.000'den fazla oyunun fiyat, inceleme, takipçi ve istek listesi gibi verisi tek yerde toplanıyor; her verinin doğrulanmış mı tahmini mi olduğu ayrıca işaretleniyor. Kullanıcı oyunları filtreleyip sıralayabiliyor, grafiklerle pazarı ve rekabeti inceleyebiliyor, sonuçları Excel olarak indirebiliyor. Veri toplama ve API tarafını Python (FastAPI) ve PostgreSQL ile, arayüzü Next.js ve TypeScript ile yazdım; tüm sistem Docker ile tek komutla çalışıyor.</p><a href="https://github.com/Esmaxp/steam2026-indie-intel" target="_blank" rel="noopener">GitHub'da gör</a></div></div>
+</section>
+
+<section id="deneyim">
+<h2>Deneyim ve eğitim</h2>
+<div class="two">
+<div>
+<h3 class="sub">Deneyim</h3>
+<div class="it"><b>Bilgisayar Mühendisi Stajyeri, Onkatec</b><small>Temmuz 2026 - Ekim 2026</small><p>3 ay boyunca radar tabanlı kişi algılama ve takip projesinde çalıştım.</p></div>
+<h3 class="sub" style="margin-top:34px">Sertifikalar</h3>
+<div class="tags"><a href="https://www.btkakademi.gov.tr/portal/c/mKEhkkXoy4" target="_blank" rel="noopener">BTK Akademi: Git ve GitHub</a><a href="https://www.btkakademi.gov.tr/portal/c/XV1hWqOdbW" target="_blank" rel="noopener">BTK Akademi: HTML Web Geliştirme</a><a href="https://www.btkakademi.gov.tr/portal/c/8jmhLDLxa2" target="_blank" rel="noopener">BTK Akademi: Excel Eğitimi</a><span>Udemy: Python 101</span><a href="https://globallycheck.com/Verified/OutCome?cn=YZE4351252C" target="_blank" rel="noopener">Talent Coders: Uygulamalı Yapay Zeka</a><span>TMMBO üyesi</span></div>
+</div>
+<div>
+<h3 class="sub">Eğitim</h3>
+<div class="it"><b>Bilgisayar Mühendisliği (3,4 / 4)</b><small>Tekirdağ Namık Kemal Üniversitesi, 2023 - 2027</small></div>
+<div class="it"><b>Yandal: Endüstri Mühendisliği (2,9 / 4)</b><small>Tekirdağ Namık Kemal Üniversitesi, 2025 - 2027</small></div>
+<h3 class="sub" style="margin-top:34px">Diller</h3>
+<div class="tags m"><span>Türkçe: ana dil</span><span>İngilizce: B1</span></div>
+</div>
+</div>
+</section>
+
+<footer id="iletisim">
+<div class="ci">
+<h2>İletişim</h2>
+<div class="mail">esmanurguvenc343@gmail.com</div>
+<div class="row">
+<a class="btn f" href="mailto:esmanurguvenc343@gmail.com">E-posta gönder</a>
+<button class="btn" id="copy">E-postayı kopyala</button>
+<a class="btn" href="https://www.linkedin.com/in/esmanur-güvenç" target="_blank" rel="noopener">LinkedIn</a>
+<a class="btn" href="https://github.com/Esmaxp" target="_blank" rel="noopener">GitHub</a>
+</div>
+<p class="copy">© 2026 Esma Nur Güvenç</p>
+</div>
+</footer>
+<div id="toast" role="status">E-posta kopyalandı</div>
+
+<script>
+(()=>{
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const roles=['Bilgisayar mühendisliği öğrencisi','Radar ve gömülü sistemler','Görüntü işleme','Oyun geliştirme','Veri analizi'];
+const ty=document.getElementById('typed');
+if(RM)ty.textContent=roles[0];
+else{let i=0,j=0,del=false;(function tick(){const w=roles[i];ty.textContent=w.slice(0,j);if(!del&&j===w.length){del=true;return setTimeout(tick,1600)}if(del&&j===0){del=false;i=(i+1)%roles.length}j+=del?-1:1;setTimeout(tick,del?28:55)})()}
+
+/* Mini oyun: Roll-a-Ball */
+const cv=document.getElementById('game'),c=cv.getContext('2d'),dpr=Math.min(devicePixelRatio||1,2);
+const COLS=['#ffb48f','#7fd1b0','#ffd166','#f59bb8','#7bb6e8'],N=8;
+const score=document.getElementById('score'),msg=document.getElementById('msg'),inbox=document.querySelector('.in');
+let W,H,r=22,vis=true,m=null,done=false,P=[],parts=[],got=0;const keys={};
+const b={x:0,y:0,vx:0,vy:0,rot:0,tr:[]};
+function size(){const k=cv.getBoundingClientRect();W=k.width;H=k.height;cv.width=W*dpr;cv.height=H*dpr;c.setTransform(dpr,0,0,dpr,0,0);r=W<600?16:22;if(!b.x){b.x=W*.72;b.y=H*.55}b.x=Math.min(Math.max(b.x,r),W-r);b.y=Math.min(Math.max(b.y,r),H-r)}
+function spawn(){
+const q=inbox.getBoundingClientRect(),k=cv.getBoundingClientRect(),L=q.left-k.left-24,Rr=q.right-k.left+24,Tt=q.top-k.top-24,Bb=q.bottom-k.top+24;
+P=[];for(let i=0;i<N;i++){let x,y,t=0;do{x=.06+Math.random()*.88;y=.12+Math.random()*.76;t++}while(t<60&&x*W>L&&x*W<Rr&&y*H>Tt&&y*H<Bb);P.push({x,y,c:COLS[i%5],ph:Math.random()*6.28,on:true})}
+got=0;done=false;score.textContent='0 / '+N;msg.textContent=''}
+function step(){
+let ax=0,ay=0;
+if(m){const dx=m.x-b.x,dy=m.y-b.y,d=Math.hypot(dx,dy)||1,f=Math.min(d/140,1)*.5;ax+=dx/d*f;ay+=dy/d*f}
+if(keys.a)ax-=.5;if(keys.d)ax+=.5;if(keys.w)ay-=.5;if(keys.s)ay+=.5;
+b.vx=(b.vx+ax)*.94;b.vy=(b.vy+ay)*.94;
+const sp=Math.hypot(b.vx,b.vy);if(sp>9){b.vx*=9/sp;b.vy*=9/sp}
+b.x+=b.vx;b.y+=b.vy;
+if(b.x<r){b.x=r;b.vx*=-.6}if(b.x>W-r){b.x=W-r;b.vx*=-.6}if(b.y<r){b.y=r;b.vy*=-.6}if(b.y>H-r){b.y=H-r;b.vy*=-.6}
+b.rot+=b.vx/r;b.tr.push([b.x,b.y]);if(b.tr.length>10)b.tr.shift();
+P.forEach(p=>{if(!p.on)return;const px=p.x*W,py=p.y*H;if(Math.hypot(px-b.x,py-b.y)<r+13){p.on=false;got++;score.textContent=got+' / '+N;
+for(let i=0;i<12;i++){const a=Math.random()*6.28,s=1+Math.random()*3;parts.push({x:px,y:py,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:1,c:p.c})}
+if(got===N&&!done){done=true;msg.textContent='Hepsini topladın!';setTimeout(spawn,2200)}}});
+parts.forEach(q=>{q.x+=q.vx;q.y+=q.vy;q.vx*=.95;q.vy*=.95;q.l-=.025});parts=parts.filter(q=>q.l>0)}
+function draw(t){
+c.clearRect(0,0,W,H);
+P.forEach(p=>{if(!p.on)return;c.save();c.translate(p.x*W,p.y*H+(RM?0:Math.sin(t/600+p.ph)*5));c.rotate(RM?.6:t/700+p.ph);c.fillStyle=p.c;c.strokeStyle='#3a3552';c.lineWidth=2;c.beginPath();c.roundRect(-13,-13,26,26,6);c.fill();c.stroke();c.restore()});
+b.tr.forEach((p,i)=>{c.globalAlpha=i/b.tr.length*.25;c.fillStyle='#6f5cc4';c.beginPath();c.arc(p[0],p[1],r*i/b.tr.length,0,6.2832);c.fill()});c.globalAlpha=1;
+c.fillStyle='rgba(58,53,82,.15)';c.beginPath();c.ellipse(b.x+4,b.y+r+4,r*.9,r*.3,0,0,6.2832);c.fill();
+const g=c.createRadialGradient(b.x-r*.35,b.y-r*.4,r*.1,b.x,b.y,r);g.addColorStop(0,'#c9bdf7');g.addColorStop(1,'#6f5cc4');c.fillStyle=g;c.beginPath();c.arc(b.x,b.y,r,0,6.2832);c.fill();
+c.fillStyle='rgba(255,255,255,.75)';c.beginPath();c.arc(b.x+Math.cos(b.rot)*r*.55,b.y+Math.sin(b.rot)*r*.55,r*.16,0,6.2832);c.fill();
+parts.forEach(q=>{c.globalAlpha=q.l;c.fillStyle=q.c;c.beginPath();c.arc(q.x,q.y,3.5,0,6.2832);c.fill()});c.globalAlpha=1}
+function loop(t){if(vis){step();draw(t)}requestAnimationFrame(loop)}
+cv.addEventListener('pointermove',e=>{const k=cv.getBoundingClientRect();m={x:e.clientX-k.left,y:e.clientY-k.top}});
+cv.addEventListener('pointerleave',()=>m=null);
+const km={KeyW:'w',KeyA:'a',KeyS:'s',KeyD:'d',ArrowUp:'w',ArrowLeft:'a',ArrowDown:'s',ArrowRight:'d'};
+addEventListener('keydown',e=>{const k=km[e.code];if(!k||!vis)return;if(e.code.startsWith('Arrow')){if(document.activeElement!==cv)return;e.preventDefault()}keys[k]=true});
+addEventListener('keyup',e=>{const k=km[e.code];if(k)keys[k]=false});
+new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(cv);
+addEventListener('resize',size);
+size();spawn();requestAnimationFrame(loop);
+
+document.querySelectorAll('.int').forEach(x=>x.onclick=()=>x.setAttribute('aria-expanded',x.getAttribute('aria-expanded')!=='true'));
+const chips=document.querySelectorAll('.chip'),rows=document.querySelectorAll('.proj');
+chips.forEach(x=>x.onclick=()=>{chips.forEach(y=>y.setAttribute('aria-pressed',y===x));rows.forEach(r2=>r2.hidden=x.dataset.f!=='all'&&!r2.dataset.t.split(' ').includes(x.dataset.f))});
+const toast=document.getElementById('toast');
+document.getElementById('copy').onclick=()=>navigator.clipboard.writeText('esmanurguvenc343@gmail.com').then(()=>{toast.classList.add('on');setTimeout(()=>toast.classList.remove('on'),1800)});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Yerel işletim sistemi ve editör dosyaları
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# Yerel ayarlar ve geçici dosyalar
+.env
+.env.*
+*.log
+*.tmp
+*.bak
